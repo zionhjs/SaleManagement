@@ -11,14 +11,13 @@ import './style/base.css';
 
 FastClick.attach(document.body);
 
-// 监听state变化
+// listen to stats changes
 // store.subscribe(() => {
-//   console.log('store发生了变化');
+//   console.log('store changes');
 // });
 
 const render = Component => {
   ReactDOM.render(
-    //绑定redux、热加载
     <Provider store={store}>
       <AppContainer>
         <Component />

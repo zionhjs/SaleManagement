@@ -5,11 +5,11 @@ export default methods => {
 }
 
 /**
- * 字符串填充函数
- * @param  {string} value      目标字符串
- * @param  {array} position 需要填充的位置
- * @param  {string} padstr   填充字符串
- * @return {string}          返回目标字符串
+ * string filling func
+ * @param  {string} value      target string
+ * @param  {array} position where to fill
+ * @param  {string} padstr   filling string
+ * @return {string}          return target string
  */
 export const padStr = (value, position, padstr, inputElement) => {
   position.forEach((item, index) => {
@@ -18,7 +18,7 @@ export const padStr = (value, position, padstr, inputElement) => {
     }
   })
   value = value.trim();
-  // 解决安卓部分浏览器插入空格后光标错位问题
+  // solve android problem
   requestAnimationFrame(() => {
     inputElement.setSelectionRange(value.length, value.length); 
   })
