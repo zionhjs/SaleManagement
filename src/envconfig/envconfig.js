@@ -1,5 +1,5 @@
 /**
- * 全局配置文件
+ * global config file
  */
 let baseURL; 
 let imgUrl = '//elm.cangdu.org/img/';

@@ -8,14 +8,14 @@ import './balance.less';
 
 class BrokeRage extends Component{
   state = {
-    applyNum: '', //输入值
-    alertStatus: false, //弹框状态
-    alertTip: '', //弹框提示文字
-    balance: {  //可提现金额
+    applyNum: '', //input value
+    alertStatus: false, //window status
+    alertTip: '', //text in window
+    balance: {  //balance lefted
       balance: 0, 
     },
   }
-  // 初始化数据
+  // initialize data
   initData = async () => {
     try{
       let result = await API.getBalance();
@@ -27,9 +27,9 @@ class BrokeRage extends Component{
   }
   
   /**
-   * 格式化输入数据
-   * 格式为微信红包格式：最大 200.00
-   * @param  {object} event 事件对象
+   * input data
+   * formate for the pocket: maxium 200.00
+   * @param  {object} event eventObj
    */
   handleInput = event => {
     let value = event.target.value;
@@ -49,16 +49,16 @@ class BrokeRage extends Component{
   }
   
   /**
-   * 提交判断条件
+   * submit judgement condition
    */
   sumitForm = () => {
     let alertTip;
     if(!this.state.applyNum){
-      alertTip = '请输入提现金额';
+      alertTip = 'Please Type The Amount';
     }else if(parseFloat(this.state.applyNum) > this.state.balance.balance){
-      alertTip = '申请提现金额不能大于余额';
+      alertTip = 'Applying Amount can\'t larger than balance ';
     }else{
-      alertTip = '申请提现成功';
+      alertTip = 'Apply Submit Success';
     }
 
     this.setState({
@@ -69,7 +69,7 @@ class BrokeRage extends Component{
   }
   
   /*
-  关闭弹框
+  Close pop window
    */
   closeAlert = () => {
     this.setState({
@@ -89,14 +89,14 @@ class BrokeRage extends Component{
   render(){
     return (
       <main className="home-container">
-        <PublicHeader title='提现' record />
+        <PublicHeader title='withdraw' record />
         <section className="broke-main-content">
-          <p className="broke-header">您的可提现金额为：¥ {this.state.balance.balance}</p>
+          <p className="broke-header">Your balance is：$ {this.state.balance.balance}</p>
           <form className="broke-form">
-            <p>请输入提现金额（元）</p>
+            <p>Please type in withdraw amount ($)</p>
             <p>¥ <input type="text" value={this.state.applyNum} placeholder="0.00" onInput={this.handleInput} maxLength="5" /></p>
           </form>
-          <TouchableOpacity className="submit-btn" clickCallBack={this.sumitForm} text="申请提现" />
+          <TouchableOpacity className="submit-btn" clickCallBack={this.sumitForm} text="Appply withdraw" />
         </section>
         <PublicAlert closeAlert={this.closeAlert} alertTip={this.state.alertTip} alertStatus={this.state.alertStatus} />
       </main>
