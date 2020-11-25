@@ -13,14 +13,14 @@ export default class PublicHeader extends Component{
   }
 
   state = {
-    navState: false, //导航栏是否显示
+    navState: false, //display nav bar or not
   };
   
-  // 切换左侧导航栏状态
+  // toggle leftside bar
   toggleNav = () => {
     this.setState({navState: !this.state.navState});
   }
-  // css动画组件设置为目标组件
+  // css animation component
   FirstChild = props => {
     const childrenArray = React.Children.toArray(props.children);
     return childrenArray[0] || null;

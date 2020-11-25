@@ -11,12 +11,12 @@ export default class Alert extends Component{
     alertTip: PropTypes.string.isRequired,
     alertStatus: PropTypes.bool.isRequired,
   }
-  // css动画组件设置为目标组件
+  // css animation component
   FirstChild = props => {
     const childrenArray = React.Children.toArray(props.children);
     return childrenArray[0] || null;
   }
-  // 关闭弹框
+  // close pop window
   confirm = () => {
     this.props.closeAlert();
   }
