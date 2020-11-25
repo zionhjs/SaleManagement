@@ -1,9 +1,9 @@
 import * as pro from './action-type';
 import API from '@/api/api';
 
-// 初始化获取商品数据，保存至redux
+// initialize product data from redux
 export const getProData = () => {
-  // 返回函数，异步dispatch
+  // return func, async dispatch
   return async dispatch => {
     try{
       let result = await API.getProduction();
@@ -22,7 +22,7 @@ export const getProData = () => {
   }
 }
 
-// 选择商品
+// choose product
 export const togSelectPro = index => {
   return {
     type: pro.TOGGLESELECT,
@@ -30,7 +30,7 @@ export const togSelectPro = index => {
   }
 }
 
-// 编辑商品
+// edit product
 export const editPro = (index, selectNum) => {
   return {
     type: pro.EDITPRODUCTION,
@@ -39,7 +39,7 @@ export const editPro = (index, selectNum) => {
   }
 }
 
-// 清空选择
+// close choose
 export const clearSelected = () => {
   return {
     type: pro.CLEARSELECTED,

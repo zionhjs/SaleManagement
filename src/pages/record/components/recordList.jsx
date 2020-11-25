@@ -10,8 +10,8 @@ class RecordList extends Component{
   }
   
   /**
-   * 初始化获取数据
-   * @param  {string} type 数据类型
+   * initialize data
+   * @param  {string} type data type
    */
   getRecord = async type => {
     try{
@@ -23,7 +23,7 @@ class RecordList extends Component{
   }
 
   componentWillReceiveProps(nextProps){
-    // 判断类型是否重复
+    // if data repeated
     let currenType = this.props.location.pathname.split('/')[2];
     let type = nextProps.location.pathname.split('/')[2];
     if(currenType !== type){
@@ -48,15 +48,15 @@ class RecordList extends Component{
           this.state.recordData.map((item, index) => {
             return <li className="record-item" key={index}>
               <section className="record-item-header">
-                <span>创建时间：{item.created_at}</span>
+                <span>Created Time: {item.created_at}</span>
                 <span>{item.type_name}</span>
               </section>
               <section className="record-item-content">
-                <p><span>用户名：</span>{item.customers_name} &emsp; {item.customers_phone}</p>
-                <p><span>商&emsp;品：</span>{item.product[0].product_name}</p>
-                <p><span>金&emsp;额：</span>{item.sales_money} &emsp; 佣金：{item.commission}</p>
+                <p><span>UserName: </span>{item.customers_name} &emsp; {item.customers_phone}</p>
+                <p><span>Product:</span>{item.product[0].product_name}</p>
+                <p><span>Price: </span>{item.sales_money} &emsp; commission {item.commission}</p>
               </section>
-              <p className="record-item-footer">等待管理员审核，审核通过后，佣金将结算至账户</p>
+              <p className="record-item-footer">Wait for the administrator to review, after the review is passed, the commission will be settled to the account</p>
             </li>
           })
         }

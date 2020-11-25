@@ -24,19 +24,19 @@ class Home extends Component {
   }
 
   state = {
-    alertStatus: false, //弹框状态
-    alertTip: '', //弹框提示文字
+    alertStatus: false, //pop window stats
+    alertTip: '', //helper text
   }
   /**
-   * 已选择的商品数据
+   * selected product data
    * @type {Array}
    */
   selectedProList = []; 
 
   /**
-   * 将表单数据保存至redux，保留状态
-   * @param  {string} type  数据类型 orderSum||name||phoneNo
-   * @param  {object} event 事件对象
+   * save data to redux
+   * @param  {string} type  data format orderSum||name||phoneNo
+   * @param  {object} event eventObj
    */
   handleInput = (type, event) => {
     let value = event.target.value;
@@ -55,7 +55,7 @@ class Home extends Component {
   }
   
   /*
-  上传图片，并将图片地址存到redux，保留状态
+  upload image and save image to redux
    */
   uploadImg = async event => {
     try{
@@ -69,18 +69,18 @@ class Home extends Component {
     }
   }
 
-  // 提交表单
+  // submit form
   sumitForm = () => {
     const {orderSum, name, phoneNo} = this.props.formData;
     let alertTip = '';
     if(!orderSum.toString().length){
-      alertTip = '请填写金额';
+      alertTip = 'please type in amount';
     }else if(!name.toString().length){
-      alertTip = '请填写姓名';
+      alertTip = 'please type in name';
     }else if(!phoneNo.toString().length){
-      alertTip = '请填写正确的手机号';
+      alertTip = 'please type in phone number';
     }else{
-      alertTip = '添加数据成功';
+      alertTip = 'add data success';
       this.props.clearSelected();
       this.props.clearData();
     }
@@ -90,7 +90,7 @@ class Home extends Component {
     })
   }
   
-  // 关闭弹款
+  // close window
   closeAlert = () => {
     this.setState({
       alertStatus: false,
@@ -98,7 +98,7 @@ class Home extends Component {
     })
   }
   
-  // 初始化数据，获取已选择的商品
+  // initialize data
   initData = props => {
     this.selectedProList = [];
     props.proData.dataList.forEach(item => {
@@ -127,24 +127,24 @@ class Home extends Component {
     
     return (
       <main className="home-container">
-        <PublicHeader title='首页' record />
+        <PublicHeader title='Home' record />
         <p className="common-title">请录入您的信息</p>
         <form className="home-form">
           <div className="home-form-tiem">
-            <span>销售金额：</span>
-            <input type="text" placeholder="请输入订单金额" value={this.props.formData.orderSum} onChange={this.handleInput.bind(this, 'orderSum')}/>
+            <span>Sales amount: </span>
+            <input type="text" placeholder="please type in order amount" value={this.props.formData.orderSum} onChange={this.handleInput.bind(this, 'orderSum')}/>
           </div>
           <div className="home-form-tiem">
-            <span>客户姓名：</span>
-            <input type="text" placeholder="请输入客户姓名" value={this.props.formData.name} onChange={this.handleInput.bind(this, 'name')}/>
+            <span>Client name: </span>
+            <input type="text" placeholder="please type in client name" value={this.props.formData.name} onChange={this.handleInput.bind(this, 'name')}/>
           </div>
           <div className="home-form-tiem">
-            <span>客户电话：</span>
-            <input type="text" maxLength="13" placeholder="请输入客户电话" value={this.props.formData.phoneNo} onChange={this.handleInput.bind(this, 'phoneNo')}/>
+            <span>Client number: </span>
+            <input type="text" maxLength="13" placeholder="please type in client phone number" value={this.props.formData.phoneNo} onChange={this.handleInput.bind(this, 'phoneNo')}/>
           </div>
         </form>
         <div>
-          <p className="common-title">请选择销售的产品</p>
+          <p className="common-title">Please select sales product: </p>
           <Link to="/production" className="common-select-btn">
             {
               this.selectedProList.length ? <ul className="selected-pro-list">
@@ -153,19 +153,19 @@ class Home extends Component {
                     return <li key={index} className="selected-pro-item ellipsis">{item.product_name}x{item.selectNum}</li>
                   })
                 }
-              </ul>:'选择产品'
+              </ul>:'please choose product'
             }
           </Link>
         </div>
         <div className="upload-img-con">
-          <p className="common-title">请上传发票凭证</p>
+          <p className="common-title">please upload credential: </p>
           <div className="file-lable">
-            <span className="common-select-btn">上传图片</span>
+            <span className="common-select-btn">upload image</span>
             <input type="file" onChange={this.uploadImg}/>
           </div>
           <img src={this.props.formData.imgpath} className="select-img" alt=""/>
         </div>
-        <TouchableOpacity className="submit-btn" clickCallBack={this.sumitForm} text="提交" />
+        <TouchableOpacity className="submit-btn" clickCallBack={this.sumitForm} text="submit" />
         <PublicAlert closeAlert={this.closeAlert} alertTip={this.state.alertTip} alertStatus={this.state.alertStatus} />
       </main>
     );

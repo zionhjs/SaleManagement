@@ -1,8 +1,8 @@
-// 保存商品数据
+// save product data
 export const GETPRODUCTION = 'GETPRODUCTION';
-// 选择商品
+// choose product
 export const TOGGLESELECT = 'TOGGLESELECT';
-// 编辑商品
+// edit product
 export const EDITPRODUCTION = 'EDITPRODUCTION';
-// 清空选择
+// clean choose
 export const CLEARSELECTED = 'CLEARSELECTED';

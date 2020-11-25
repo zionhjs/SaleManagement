@@ -12,11 +12,11 @@ export default class HelpCenter extends Component {
   render(){
     return (
       <main>
-        <PublicHeader title="帮助中心" record />
+        <PublicHeader title="Help Center" record />
         <article className="context-con">
-          <h2>介绍</h2>
-          <p>本项目主要用于理解 react 和 redux 的编译方式，以及 react + redux 之间的配合方式</p>
-          <h2>技术要点</h2>
+          <h2>Intro</h2>
+          <p>This is a project done with React & Redux</p>
+          <h2>Pakcage & SDK used:</h2>
           <p>react：v16.2</p>
           <p>redux：v3.7</p>
           <p>webpack：v3.8</p>
@@ -27,7 +27,6 @@ export default class HelpCenter extends Component {
           <p>axios：v0.17</p>
           <p>less：v2.7</p>
           <p>immutable：v3.8</p>
-          <p>项目地址 <a href="https://github.com/bailicangdu/react-pxq">github</a></p>
         </article>
       </main>
     )

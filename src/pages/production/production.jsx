@@ -15,9 +15,9 @@ class Production extends Component{
   }
   
   /**
-   * 添加或删减商品，交由redux进行数据处理，作为全局变量
-   * @param  {int} index 编辑的商品索引
-   * @param  {int} num   添加||删减的商品数量
+   * CRUD of product, all data in redux
+   * @param  {int} index edit product index
+   * @param  {int} num   add|delete product
    */
   handleEdit = (index, num) => {
     let currentNum = this.props.proData.dataList[index].selectNum + num;
@@ -27,7 +27,7 @@ class Production extends Component{
     this.props.editPro(index, currentNum);
   }
   
-  // 选择商品，交由redux进行数据处理，作为全局变量
+  // choose product
   togSelect = index => {
     this.props.togSelectPro(index);
   }
@@ -45,7 +45,7 @@ class Production extends Component{
   render(){
     return (
       <main className="common-con-top">
-        <PublicHeader title='首页' confirm />
+        <PublicHeader title='Home' confirm />
         <section className="pro-list-con">
           <ul className="pro-list-ul">
             {
