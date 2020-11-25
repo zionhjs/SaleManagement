@@ -52,7 +52,8 @@ class RecordList extends Component{
                 {/*<span>{item.type_name}</span>*/}
               </section>
               <section className="record-item-content">
-                <p><span>UserName: </span>{item.customers_name} &emsp; {item.customers_phone}</p>
+                {/*<p><span>UserName: </span>{item.customers_name} &emsp; {item.customers_phone}</p>*/}
+                <p><span>UserName: </span>Test User &emsp; {item.customers_phone}</p>
                 <p><span>Product:</span>{item.product[0].product_name}</p>
                 <p><span>Price: </span>{item.sales_money} &emsp; commission {item.commission}</p>
               </section>
