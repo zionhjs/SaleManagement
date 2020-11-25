@@ -2,9 +2,9 @@ import Server from './server';
 
 class API extends Server{
   /**
-   *  用途：上传图片
+   *  for：uploading image
    *  @url https://elm.cangdu.org/v1/addimg/shop
-   *  返回status为1表示成功
+   *  return status 1 means success
    *  @method post
    *  @return {promise}
    */
@@ -15,7 +15,7 @@ class API extends Server{
         return result;
       }else{
         let err = {
-          tip: '上传图片失败',
+          tip: 'uploading image failed',
           response: result,
           data: params,
           url: '//elm.cangdu.org/v1/addimg/shop',
@@ -28,9 +28,9 @@ class API extends Server{
   }
 
   /**
-   *  用途：获取记录数据
+   *  for ：get history data
    *  @url https://api.cangdu.org/shopro/data/record
-   *  返回http_code为200表示成功
+   *  return http_code为200 means success
    *  @method get
    *  @return {promise}
    */
@@ -41,7 +41,7 @@ class API extends Server{
         return result.data;
       }else{
         let err = {
-          tip: '获取记录数据失败',
+          tip: 'get history data failed',
           response: result,
           data: params,
           url: 'https://api.cangdu.org/shopro/data/record',
@@ -54,9 +54,9 @@ class API extends Server{
   }
 
   /**
-   *  用途：获取商品数据
+   *  for: get product data
    *  @url https://api.cangdu.org/shopro/data/products
-   *  返回http_code为200表示成功
+   *  return http_code 200 means success
    *  @method get
    *  @return {promise}
    */
@@ -67,7 +67,7 @@ class API extends Server{
         return result.data.data||[];
       }else{
         let err = {
-          tip: '获取商品数据失败',
+          tip: 'load product data failed',
           response: result,
           data: params,
           url: 'https://api.cangdu.org/shopro/data/products',
@@ -80,9 +80,9 @@ class API extends Server{
   }
 
   /**
-   *  用途：获取佣金数据
+   *  for: get commision data
    *  @url https://api.cangdu.org/shopro/data/balance
-   *  返回http_code为200表示成功
+   *  return http_code 200 means success
    *  @method get
    *  @return {promise}
    */
@@ -93,7 +93,7 @@ class API extends Server{
         return result.data.data||{};
       }else{
         let err = {
-          tip: '获取佣金数据失败',
+          tip: 'get commission data failed',
           response: result,
           data: params,
           url: 'https://api.cangdu.org/shopro/data/balance',
