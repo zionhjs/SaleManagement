@@ -49,7 +49,7 @@ class RecordList extends Component{
             return <li className="record-item" key={index}>
               <section className="record-item-header">
                 <span>Created Time: {item.created_at}</span>
-                <span>{item.type_name}</span>
+                {/*<span>{item.type_name}</span>*/}
               </section>
               <section className="record-item-content">
                 <p><span>UserName: </span>{item.customers_name} &emsp; {item.customers_phone}</p>
