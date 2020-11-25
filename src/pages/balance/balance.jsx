@@ -47,7 +47,7 @@ class BrokeRage extends Component{
       this.setState({applyNum: value});
     }
   }
-  
+
   /**
    * submit judgement condition
    */
@@ -94,9 +94,9 @@ class BrokeRage extends Component{
           <p className="broke-header">Your balance is：$ {this.state.balance.balance}</p>
           <form className="broke-form">
             <p>Please type in withdraw amount ($)</p>
-            <p>¥ <input type="text" value={this.state.applyNum} placeholder="0.00" onInput={this.handleInput} maxLength="5" /></p>
+            <p>$ <input type="text" value={this.state.applyNum} placeholder="0.00" onInput={this.handleInput} maxLength="5" /></p>
           </form>
-          <TouchableOpacity className="submit-btn" clickCallBack={this.sumitForm} text="Appply withdraw" />
+          <TouchableOpacity className="submit-btn" clickCallBack={this.sumitForm} text="Apply withdraw" />
         </section>
         <PublicAlert closeAlert={this.closeAlert} alertTip={this.state.alertTip} alertStatus={this.state.alertStatus} />
       </main>

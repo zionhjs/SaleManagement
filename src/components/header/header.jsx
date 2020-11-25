@@ -38,7 +38,7 @@ export default class PublicHeader extends Component{
           this.props.record&&<NavLink to="/record" exact className="header-link icon-jilu"></NavLink>
         }
         {
-          this.props.confirm&&<NavLink to="/" exact className="header-link header-link-confim">确定</NavLink>
+          this.props.confirm&&<NavLink to="/" exact className="header-link header-link-confim">Confirm</NavLink>
         }
         <ReactCSSTransitionGroup
           component={this.FirstChild}
@@ -47,9 +47,9 @@ export default class PublicHeader extends Component{
           transitionLeaveTimeout={300}>
             {
               this.state.navState && <aside key='nav-slide' className="nav-slide-list" onClick={this.toggleNav}>
-                <NavLink to="/" exact className="nav-link icon-jiantou-copy-copy">首页</NavLink>
-                <NavLink to="/balance" exact className="nav-link icon-jiantou-copy-copy">提现</NavLink>
-                <NavLink to="/helpcenter" exact className="nav-link icon-jiantou-copy-copy">帮助中心</NavLink>
+                <NavLink to="/" exact className="nav-link icon-jiantou-copy-copy">Home</NavLink>
+                <NavLink to="/balance" exact className="nav-link icon-jiantou-copy-copy">Withdraw</NavLink>
+                <NavLink to="/helpcenter" exact className="nav-link icon-jiantou-copy-copy">Help Center</NavLink>
               </aside>
             }
         </ReactCSSTransitionGroup>

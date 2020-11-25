@@ -128,7 +128,7 @@ class Home extends Component {
     return (
       <main className="home-container">
         <PublicHeader title='Home' record />
-        <p className="common-title">请录入您的信息</p>
+        <p className="common-title">Pleas type in your information</p>
         <form className="home-form">
           <div className="home-form-tiem">
             <span>Sales amount: </span>
